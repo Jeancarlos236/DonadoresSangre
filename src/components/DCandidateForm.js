@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
 	Grid,
 	TextField,
@@ -62,7 +62,7 @@ const DCandidateForm = ({ classes, ...props }) => {
 			...temp,
 		});
 
-		if (fieldValues == values) return Object.values(temp).every(x => x == "");
+		if (fieldValues === values) return Object.values(temp).every(x => x === "");
 	};
 
 	const {
@@ -88,15 +88,15 @@ const DCandidateForm = ({ classes, ...props }) => {
 				resetForm();
 				addToast("Submitted successfully", { appearance: "success" });
 			};
-			if (props.currentId == 0) props.createDCandidate(values, onSuccess);
+			if (props.currentId === 0) props.createDCandidate(values, onSuccess);
 			else props.updateDCandidate(props.currentId, values, onSuccess);
 		}
 	};
 
 	useEffect(() => {
-		if (props.currentId != 0) {
+		if (props.currentId !== 0) {
 			setValues({
-				...props.dCandidateList.find(x => x.id == props.currentId),
+				...props.dCandidateList.find(x => x.id === props.currentId),
 			});
 			setErrors({});
 		}
@@ -135,7 +135,7 @@ const DCandidateForm = ({ classes, ...props }) => {
 						className={classes.formControl}
 						{...(errors.bloodGroup && { error: true })}
 					>
-						<InputLabel ref={inputLabel}>Blood Group</InputLabel>
+						<InputLabel ref={inputLabel}>Tipo de sangre</InputLabel>
 						<Select
 							name="bloodGroup"
 							value={values.bloodGroup}
@@ -143,14 +143,14 @@ const DCandidateForm = ({ classes, ...props }) => {
 							labelWidth={labelWidth}
 						>
 							<MenuItem value="">Selecciona el tipo de sangre</MenuItem>
-							<MenuItem value="A+">A +ve</MenuItem>
-							<MenuItem value="A-">A -ve</MenuItem>
-							<MenuItem value="B+">B +ve</MenuItem>
-							<MenuItem value="B-">B -ve</MenuItem>
-							<MenuItem value="AB+">AB +ve</MenuItem>
-							<MenuItem value="AB-">AB -ve</MenuItem>
-							<MenuItem value="O+">O +ve</MenuItem>
-							<MenuItem value="O-">O -ve</MenuItem>
+							<MenuItem value="A+">A +</MenuItem>
+							<MenuItem value="A-">A -</MenuItem>
+							<MenuItem value="B+">B +</MenuItem>
+							<MenuItem value="B-">B -</MenuItem>
+							<MenuItem value="AB+">AB +</MenuItem>
+							<MenuItem value="AB-">AB -</MenuItem>
+							<MenuItem value="O+">O +</MenuItem>
+							<MenuItem value="O-">O -</MenuItem>
 						</Select>
 						{errors.bloodGroup && (
 							<FormHelperText>{errors.bloodGroup}</FormHelperText>
@@ -176,7 +176,7 @@ const DCandidateForm = ({ classes, ...props }) => {
 					<TextField
 						name="address"
 						variant="outlined"
-						label="Address"
+						label="Direccion"
 						value={values.address}
 						onChange={handleInputChange}
 					/>
