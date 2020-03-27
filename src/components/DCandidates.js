@@ -60,7 +60,7 @@ const DCandidates = ({ classes, ...props }) => {
 								<TableRow>
 									<TableCell>Nombre</TableCell>
 									<TableCell>Celular</TableCell>
-									<TableCell>Blood Group</TableCell>
+									<TableCell>Tipo de sangre</TableCell>
 									<TableCell></TableCell>
 								</TableRow>
 							</TableHead>
