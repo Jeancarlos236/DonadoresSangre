@@ -10,6 +10,14 @@ import {
 	Button,
 	FormHelperText,
 } from "@material-ui/core";
+import {
+	IonApp,
+	IonButton,
+	IonGrid,
+	IonInput,
+	IonLabel,
+	IonButtons,
+} from "@ionic/react";
 import useForm from "./useForm";
 import { connect } from "react-redux";
 import * as actions from "../actions/dCandidate";
@@ -41,11 +49,7 @@ const initialFieldValues = {
 };
 
 const DCandidateForm = ({ classes, ...props }) => {
-	//toast msg.
 	const { addToast } = useToasts();
-
-	//validate()
-	//validate({fullName:'jenny'})
 	const validate = (fieldValues = values) => {
 		let temp = { ...errors };
 		if ("fullName" in fieldValues)
@@ -135,7 +139,7 @@ const DCandidateForm = ({ classes, ...props }) => {
 						className={classes.formControl}
 						{...(errors.bloodGroup && { error: true })}
 					>
-						<InputLabel ref={inputLabel}>Tipo de sangre</InputLabel>
+						<IonLabel ref={inputLabel}>Tipo de sangre</IonLabel>
 						<Select
 							name="bloodGroup"
 							value={values.bloodGroup}
@@ -181,21 +185,21 @@ const DCandidateForm = ({ classes, ...props }) => {
 						onChange={handleInputChange}
 					/>
 					<div>
-						<Button
+						<IonButton
 							variant="contained"
 							color="primary"
 							type="submit"
 							className={classes.smMargin}
 						>
 							Enviar
-						</Button>
-						<Button
+						</IonButton>
+						<IonButton
 							variant="contained"
 							className={classes.smMargin}
 							onClick={resetForm}
 						>
 							Reset
-						</Button>
+						</IonButton>
 					</div>
 				</Grid>
 			</Grid>
