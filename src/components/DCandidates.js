@@ -14,14 +14,7 @@ import {
 	ButtonGroup,
 	Button,
 } from "@material-ui/core";
-import {
-	IonApp,
-	IonButton,
-	IonGrid,
-	IonInput,
-	IonLabel,
-	IonButtons,
-} from "@ionic/react";
+import { IonApp, IonButton, IonGrid } from "@ionic/react";
 import DCandidateForm from "./DCandidateForm";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
